@@ -1,6 +1,7 @@
 .navbar {
     overflow: hidden;
     background-color:rgb(132,176,227);
+    width: 100vw;
 }
 
 .navbar a {

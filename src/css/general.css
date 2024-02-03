@@ -2,11 +2,12 @@
     background-color: rgb(48, 60, 128);
     width: 100%;
     height: 100vh;
-    padding: 20px;
 
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
-;
+}
+.home h1{
+    color: rgb(246, 198, 221);
+    margin-top:60%;
 }
