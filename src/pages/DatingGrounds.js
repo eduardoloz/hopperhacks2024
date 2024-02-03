@@ -1,6 +1,6 @@
 const DatingGrounds = () => {
     return(
-        <div className="page">  
+        <div>  
             <h1>WOOF WOOF BARK BARK</h1>
         </div>
     )
