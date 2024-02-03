@@ -12,7 +12,7 @@
     margin-top:60%;
 }
 .button {
-    padding: 0.6em 2em;
+    padding: 0.6em 2.4em;
     outline: none;
     color: rgb(255, 255, 255);
     background: #111;
@@ -81,4 +81,9 @@
 .button:hover {
     background: none;
     color: #111;
+}
+
+.buttons{
+    text-decoration: none;
+    text-align: center;
 }
