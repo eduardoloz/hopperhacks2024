@@ -8,8 +8,8 @@ const Home = () => {
                 <div className="home">
                     <h1>❤ ❤ ❤ ~ Hopper Dreams ~ ❤ ❤ ❤</h1>
                     <div className="buttons">
-                        <a href="https://www.example.com" role="button" class="button">Button Link 1</a>
-                        <a href="https://www.example.com" role="button" class="button">Button Link 2</a>
+                        <Link to="/register" className="button">Button Link 1</Link>
+                        <Link to="/login" className="button">Button Link 2</Link>
                     </div>
                 </div>
             </div>
