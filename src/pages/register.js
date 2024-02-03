@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 function Register() {
   return (
+    <div class="container">
     <div class="register-form">
       <form action="/register" method="post" class="form">
         <p class="register-title">Dreamy Hoppers Application</p>
@@ -15,6 +16,7 @@ function Register() {
         </div>
         <button class="register-btn">❤❤❤ ~ Register ~ ❤❤❤</button>
       </form>
+    </div>
     </div>
   );
 }
