@@ -1,11 +1,12 @@
 import React from "react";
 import "../css/login.css";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
     <div class="login-form">
       <form action="/login" method="post" class="form">
-        <p class="login-title">Dreamy Hoppers Application</p>
+        <p class="login-title">Join Now!</p>
         <div class="username-input">
           <input type="text" placeholder="Enter Username" />
         </div>
