@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import DatingGrounds from './pages/DatingGrounds';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -10,15 +11,19 @@ import {
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/home",
+      path: "/",
       element: <Home />,
-    },//loads <Home> when you visit home
+    },
+    {
+      path:"/dating",
+      element: <DatingGrounds />,
+    }//loads <Home> when you visit home
   ])
 
   return (
     <div>
       <Navbar />
-      <Home />
+      <RouterProvider router={router} />
     </div>
   );
 }
