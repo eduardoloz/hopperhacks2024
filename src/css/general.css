@@ -24,6 +24,7 @@
     -webkit-user-select: none;
     touch-action: manipulation;
     margin: 10px;
+    border: #111 2px solid;
 }
 
 .button:before {
