@@ -1,12 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
+import Home from './pages/Home';
 
 function App() {
   return (
     <div>
       <Navbar />
-      <h1>Hopper dreams :3</h1>
+      <Home />
     </div>
   );
 }

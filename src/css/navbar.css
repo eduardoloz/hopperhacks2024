@@ -1,15 +1,20 @@
 .navbar {
     overflow: hidden;
-    background-color:rgb(48,60,128);
+    background-color:rgb(132,176,227);
 }
 
 .navbar a {
     float: left;
     display: block;
-    color: #f2f2f2;
+    color: rgb(245,219,147);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+
+    font-size: 40px;
+    -webkit-text-stroke-width: px;
+    -webkit-text-stroke-color: black;
+
 }
 
 .navbar a.right {

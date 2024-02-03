@@ -1,8 +1,13 @@
-import "./css/profile.css"
+import "./../css/general.css"
 
 const Home = () => {
     return(
-        <h1>Home</h1>
+        <div>
+            <div className="page">
+                <h1>Home</h1>
+            </div>
+        </div>
+
     )
 }
 
