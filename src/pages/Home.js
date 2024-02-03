@@ -1,4 +1,5 @@
-import "./../css/general.css"
+import "./../css/general.css";
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return(
