@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import "../css/register.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import hopperImage from "../assets/hopper.png"; 
 
 function Register() {
