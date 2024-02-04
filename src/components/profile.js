@@ -6,7 +6,7 @@ const Profile = (pfp) => {
   return (
   <div className="profile-container">
     <h1 className="profile-title">Name: {pfp.name}</h1>
-    <img src="path/to/your-image.jpg" alt="Profile Image" class="profile-image"></img>
+    <img src="path/to/your-image.jpg" class="profile-image"></img>
     <div className="grid-container">
       <div className="grid-item">Age: {pfp.age}</div>
       <div className="grid-item">Gender: {pfp.gender}</div>
