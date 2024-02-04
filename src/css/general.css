@@ -16,13 +16,15 @@
 }
 .home h1{
     color: rgb(246, 198, 221);
-    margin-top:60%;
+    margin-top:20%;
 }
 .home{
     text-align: center;
+    font-size: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .button {
-    padding: 0.6em 2.4em;
+    padding: 0.6em 1.8em;
     outline: none;
     color: rgb(255, 255, 255);
     background: #111;
@@ -36,6 +38,8 @@
     margin: 10px;
     border: #111 2px solid;
     text-decoration: none;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .button:before {
