@@ -11,7 +11,37 @@ async function initDatabase() {
     await addLocation('wagner', 'Wagner Hall', 'Roosevelt');
     await addLocation('greeley', 'Greeley Hall', 'Roosevelt');
     await addLocation('keller', 'Keller Hall', 'Roosevelt');
+    await addLocation('stimson', 'Stimson Hall', 'Roosevelt');
+    await addLocation('james', 'James Hall', 'H');
+    await addLocation('langmuir', 'Langmuir Hall', 'H');
+    await addLocation('benedict north', 'Benedict Hall North', 'H');
+    await addLocation('benedict south', 'Benedict Hall South', 'H');
+    await addLocation('gray', 'Gray Hall', 'Mendelsohn');
+    await addLocation('o\'neill', 'O\'Neill Hall', 'Mendelsohn');
+    await addLocation('irving', 'Irving Hall', 'Mendelsohn');
+    await addLocation('ammann', 'Ammann Hall', 'Mendelsohn');
     await addLocation('yang', 'Yang Hall', 'Nobel');
+    await addLocation('lauterbur', 'Lauterbur Hall', 'Nobel');
+    await addLocation('chavez', 'Chavez Hall', 'Living Learning');
+    await addLocation('tubman', 'Tubman Hall', 'Living Learning');
+    await addLocation('mount', 'Mount Hall', 'Roth');
+    await addLocation('hendrix', 'Hendrix Hall', 'Roth');
+    await addLocation('gershwin', 'Gershwin Hall', 'Roth');
+    await addLocation('whitman', 'Whitman Hall', 'Roth');
+    await addLocation('cardozo', 'Cardozo Hall', 'Roth');
+    await addLocation('toscanini', 'Toscanini Hall', 'Tabler');
+    await addLocation('chinn', 'Chinn Hall', 'Tabler');
+    await addLocation('hand', 'Hand Hall', 'Tabler');
+    await addLocation('douglass', 'Douglass Hall', 'Tabler');
+    await addLocation('dreiser', 'Dreiser Hall', 'Tabler');
+    await addLocation('eisenhower', 'Eisenhower Hall', 'Kelly');
+    await addLocation('shick', 'Shick Hall', 'Kelly');
+    await addLocation('hamilton', 'Hamilton Hall', 'Kelly');
+    await addLocation('dewey', 'Dewey Hall', 'Kelly');
+    await addLocation('baruch', 'Baruch Hall', 'Kelly');
+    await addLocation('schomburg', 'Schomburg Apartments', 'Schomburg');
+    await addLocation('west', 'West Apartments', 'West');
+    await addLocation('chapin', 'Chapin Apartments', 'Chapin');
 }
 
 async function addLocation(locid, name, community) {
