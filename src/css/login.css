@@ -71,3 +71,7 @@ input{
   justify-content: center;
   cursor: pointer;
 }
+
+a {
+  text-decoration: none;
+}
