@@ -1,4 +1,6 @@
 import './../css/profile.css'
+import { FaCheck } from 'react-icons/fa';
+import { FaX } from 'react-icons/fa6';
 
 const Profile = () => {
   return (
@@ -11,8 +13,10 @@ const Profile = () => {
       <div className="grid-item">Section 3</div>
       <div className="grid-item">Section 4</div>
     </div>
-    {/* <img src="path/to/button-image1.jpg" alt="Button 1" class="button-image" onclick="buttonClick1()"></img>
-    <img src="path/to/button-image2.jpg" alt="Button 2" class="button-image" onclick="buttonClick2()"></img> */}
+    <div className="accept-reject">
+      <div className="check"><FaCheck /></div>
+      <div className='x'><FaX /></div>
+    </div>
   </div>
   );
 }
