@@ -11,10 +11,10 @@ function Register() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fecthUsers();
+    fetchUsers();
   }, [])
 
-  const fecthUsers = () => {
+  const fetchUsers = () => {
     axios.get("http://localhost:3001/register")
     .then((res) => {
       console.log(res.data)
@@ -28,7 +28,7 @@ function Register() {
       setEmail('')
       setUsername('')
       setPassword('')
-      fecthUsers()
+      fetchUsers()
       navigate('/login')
     }) .catch((error) => {
       console.log('Unable to register user')
