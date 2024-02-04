@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 function Login() {
   return (
-    <div class="container-login">
+    <div class="login-container">
       <div class="login-form">
         <form action="/login" method="post" class="form">
-          <p class="login-title">Join Now!</p>
+          <p class="login-title">Date a Hopper Today!</p>
           <div class="username-input">
             <input type="text" placeholder="Enter Username" />
           </div>
@@ -15,6 +15,7 @@ function Login() {
             <input type="password" placeholder="Enter Password" />
           </div>
           <button class="login-btn">❤❤❤ ~ Login ~ ❤❤❤</button>
+          <p class="register">Not a member? <a href="/register">Sign up now</a></p>
         </form>
       </div>
     </div>

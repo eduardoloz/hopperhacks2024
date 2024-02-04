@@ -1,4 +1,4 @@
-.container-login {
+.login-container {
   background-image: url(../assets/nighthopper.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -23,11 +23,12 @@
   background: linear-gradient(90deg, rgb(132,176,227), rgb(246, 198, 221));
   box-shadow: 0 32px 64px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   opacity: 0.9;
+  margin-bottom: 100px;
 }
 
 .login-title {
   font-weight: 999;
-  font-size: 25px;
+  font-size: 35px;
   display: flex;
   justify-content: center;
   color: white;

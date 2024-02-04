@@ -5,7 +5,7 @@ import hopperImage from "../assets/hopper.png";
 
 function Register() {
   return (
-    <div className="container">
+    <div className="register-container">
       <div className="register-form">
         <form action="/register" method="post" className="form">
           <img class="register-img" src={hopperImage} alt="hopper" /> 
