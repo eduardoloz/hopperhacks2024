@@ -1,7 +1,6 @@
-import ''
+import './../css/profile.css'
 
-const Profile = ({prof}) => {
-
+const Profile = () => {
   return (
   <div className="profile-container">
     <h1 className="profile-title">Name</h1>
@@ -12,8 +11,8 @@ const Profile = ({prof}) => {
       <div className="grid-item">Section 3</div>
       <div className="grid-item">Section 4</div>
     </div>
-    <img src="path/to/button-image1.jpg" alt="Button 1" class="button-image" onclick="buttonClick1()"></img>
-    <img src="path/to/button-image2.jpg" alt="Button 2" class="button-image" onclick="buttonClick2()"></img>
+    {/* <img src="path/to/button-image1.jpg" alt="Button 1" class="button-image" onclick="buttonClick1()"></img>
+    <img src="path/to/button-image2.jpg" alt="Button 2" class="button-image" onclick="buttonClick2()"></img> */}
   </div>
   );
 }
