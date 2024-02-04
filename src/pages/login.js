@@ -10,8 +10,9 @@ function Login() {
 
   const handleLogin = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:3001/login', { username, password }).then(() => {
+    axios.post('http://localhost:3001/login', { username, password }).then((res) => {
       alert('Login Sucesssful')
+      localStorage.setItem('token', res.data.token);
       setUsername('')
       setPassword('')
       navigate('/date')
