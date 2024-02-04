@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from "react-router-dom";
 import "../css/settings.css";
+import sleepyFrogImage from "../assets/sleepyfrog.png"; 
+
 
 function Settings() {
     const storedToken = localStorage.getItem('token');
@@ -33,6 +35,7 @@ function Settings() {
       <div className="settings-container">
         <div className="settings-form">
           <form onSubmit={handleRegister} className="form">
+            <img class="settings-img" src={sleepyFrogImage} alt="sleepyfrog" /> 
             <p className="settings-title">Settings</p>
                 <input type="text" placeholder="Enter Name" 
                        value={name} onChange={(e) => setName(e.target.value)} />
