@@ -2,16 +2,16 @@ import './../css/profile.css'
 import { FaCheck } from 'react-icons/fa';
 import { FaX } from 'react-icons/fa6';
 
-const Profile = () => {
+const Profile = (pfp) => {
   return (
   <div className="profile-container">
-    <h1 className="profile-title">Name</h1>
+    <h1 className="profile-title">Name: {pfp.name}</h1>
     <img src="path/to/your-image.jpg" alt="Profile Image" class="profile-image"></img>
     <div className="grid-container">
-      <div className="grid-item">Section 1</div>
-      <div className="grid-item">Section 2</div>
-      <div className="grid-item">Section 3</div>
-      <div className="grid-item">Section 4</div>
+      <div className="grid-item">Age: {pfp.age}</div>
+      <div className="grid-item">Gender: {pfp.gender}</div>
+      <div className="grid-item">Major: {pfp.major}</div>
+      <div className="grid-item">Dorm Hall: {pfp.dormhall}</div>
     </div>
     <div className="accept-reject">
       <div className="check"><FaCheck /></div>
