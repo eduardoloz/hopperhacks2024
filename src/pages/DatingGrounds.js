@@ -3,23 +3,28 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 const DatingGrounds = () => {
-    var profile;
-
+    const [profile, setProfile] = useState('');
     const storedToken = localStorage.getItem('token');
-    axios.get('http://localhost:3001/matches', { headers: { 'token': storedToken } }).then((res) => {
-        console.log(res.data.matches[0]);
-        profile = res.data.matches[0];
+
+    useEffect(() => {
+        fetchUsers();
         console.log(profile);
-        var profileView = Profile(profile);
+	}, [])
+
+	const fetchUsers = () => {
+		axios.get('http://localhost:3001/matches', { headers: { 'token': storedToken } }).then((res) => {
+            console.log(res.data.matches[0]);
+            setProfile(res.data.matches[0])
+        }) .catch((error) => {
+            alert('Could not find matches')
+        })
+	}
     
-        return(
-            <div class="dating-container">
-                {profileView}
-            </div>
-        )
-    }) .catch((error) => {
-        alert('Could not find matches')
-    })
+    return(
+        <div class="dating-container">
+            {Profile(profile)}
+        </div>
+    )
 
 
 };
