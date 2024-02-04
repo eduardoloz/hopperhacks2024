@@ -6,8 +6,9 @@ const Navbar = () => {
         <a href="/">Home</a>
         <a href="/">About</a>
         <a href="/date">Date!</a>
-        <a href="#profile" class="right">My Account</a>
+        <a href="/settings">My Account</a>
         <a href="/About-us" class="right">About Us</a>
+        <a href="#profile" class="right">My Account</a> 
     </div>
     );
 }
