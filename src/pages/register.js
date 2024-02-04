@@ -17,6 +17,7 @@ function Register() {
       setPassword('')
       navigate('/login')
     }) .catch((error) => {
+      alert('Unable to register user')
       console.log('Unable to register user')
     })
   }
