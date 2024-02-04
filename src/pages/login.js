@@ -15,11 +15,15 @@ function Login() {
       localStorage.setItem('token', res.data.token);
       setUsername('')
       setPassword('')
-      navigate('/date')
+      navigate('/')
     }) .catch((error) => {
       alert('Unable to login');
       console.log('Unable to login user');
     })
+  }
+
+  function parseJwt (token) {
+    return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());
   }
 
   return (

@@ -8,13 +8,14 @@ import Login from "./pages/login";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
+  const isUserSignedIn = !!localStorage.getItem('token');
   return (
     <div>
       <Navbar />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/date" element={<DatingGrounds />} />
+          {isUserSignedIn && <Route path="/date" element={<DatingGrounds />} />}
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
         </Routes>
