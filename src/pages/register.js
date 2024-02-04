@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Register() {
   return (
-    <div class="container">
+    <div class="container-register">
     <div class="register-form">
       <form action="/register" method="post" class="form">
         <p class="register-title">Hopper Dreams Application</p>

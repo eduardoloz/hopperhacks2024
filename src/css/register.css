@@ -1,5 +1,5 @@
-.container {
-  background-image: url(https://www3.cs.stonybrook.edu/~wics/hopperhacks/2024/static/media/Hopper%20Sleeping%20Main.d31346e151613d3a1266.png);
+.container-register {
+  background-image: url(../assets/hoppersleepy.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
