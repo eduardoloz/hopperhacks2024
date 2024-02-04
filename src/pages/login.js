@@ -8,7 +8,7 @@ function Login() {
   const [password, setPassword] = useState('')
   const navigate = useNavigate();
 
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
     axios.post('http://localhost:3001/login', { username, password }).then((res) => {
       alert('Login Sucesssful')
@@ -16,6 +16,7 @@ function Login() {
       setUsername('')
       setPassword('')
       navigate('/')
+      window.location.reload();
     }) .catch((error) => {
       alert('Unable to login');
       console.log('Unable to login user');
