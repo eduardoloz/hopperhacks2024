@@ -11,7 +11,7 @@ function Login() {
   const handleLogin = (event) => {
     event.preventDefault();
     axios.post('http://localhost:3001/login', { username, password }).then(() => {
-      alert('Registration Sucesssful')
+      alert('Login Sucesssful')
       setUsername('')
       setPassword('')
       navigate('/date')
