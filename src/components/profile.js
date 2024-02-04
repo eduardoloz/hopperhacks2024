@@ -4,8 +4,9 @@ import { FaX } from 'react-icons/fa6';
 import React, { useState, useEffect } from 'react';
 import { set } from 'mongoose';
 import { use } from 'bcrypt/promises';
+import { clear } from '@testing-library/user-event/dist/clear';
 
-const Profile = (pfp) => {
+const Profile = ({onDisappear}, pfp) => {
   const [divs, setDivs] = useState([{id: 1, direction: null}]);
 
   const [visible, setVisible] = useState(true);
@@ -13,7 +14,8 @@ const Profile = (pfp) => {
   const copyAndMove = (direction, id) => {
     setDivs(prevDivs => {
       const newDivs = [...prevDivs, {id: prevDivs.length + 1, direction: null}];
-      setTimeout(() => setVisible(false), 2000); //why does this make children invisible bruh
+      const timer = setTimeout(() => setVisible(false), 2000); //why does this make children invisible bruh
+      onDisappear();
       return newDivs.map(div => div.id === id ? {...div, direction} : div);
     });
   }
@@ -38,34 +40,10 @@ const Profile = (pfp) => {
           <div className='check' onClick={() => copyAndMove('right', div.id)}><FaCheck /></div>
         </div>
       </div>
-      : <div></div>
+      : null
     ))}
   </div>
   );
-}
-
-function copyAndMove(button, direction) {
-  var div1 = button.parentNode;
-  var div2 = div1.cloneNode(false);
-
-  // Copy the content of div1 to div2
-  div2.innerHTML = div1.innerHTML;
-
-  // Insert div2 after div1
-  div1.parentNode.insertBefore(div2, div1.nextSibling);
-
-  // Move div1 off screen
-  if (direction === 'left') {
-      div1.classList.add("offscreen-left");
-  } else if (direction === 'right') {
-      div1.classList.add("offscreen-right");
-  }
-
-  // Delete div1 after a delay to ensure it's off screen first
-
-  setTimeout(function() {
-      div1.parentNode.removeChild(div1);
-  }, 3000); // Match the delay to the transition duration
 }
 
 export default Profile;

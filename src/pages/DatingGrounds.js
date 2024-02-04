@@ -3,6 +3,12 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 const DatingGrounds = () => {
+    const [count, setCount] = useState(1);
+
+    const handleDisappear = () => {
+        setCount(count + 1);
+    };
+    
     const [profile, setProfile] = useState('');
     const storedToken = localStorage.getItem('token');
 
@@ -22,7 +28,9 @@ const DatingGrounds = () => {
     
     return(
         <div class="dating-container">
-            {Profile(profile)}
+            {Array.from({ length: count }, (_, i) => (
+                <Profile key={i} onDisappear={handleDisappear} />
+            ))}
         </div>
     )
 
