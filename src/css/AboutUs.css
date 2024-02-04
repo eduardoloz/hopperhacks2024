@@ -1,0 +1,7 @@
+.aboutus-container {
+    background-image: url(../assets/hoppersleepy.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover; 
+}

@@ -6,6 +6,8 @@ import DatingGrounds from "./pages/DatingGrounds";
 import Register from "./pages/register";
 import Login from "./pages/login";
 import Settings from "./pages/Settings";
+import AboutUs from "./pages/AboutUs";
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -20,6 +22,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/About-us" element={<AboutUs />} />
         </Routes>
       </Router>
     </div>
