@@ -15,7 +15,7 @@ function Login() {
             <input type="password" placeholder="Enter Password" />
           </div>
           <button class="login-btn">❤❤❤ ~ Login ~ ❤❤❤</button>
-          <p class="register">Not a member? <a href="/register">Sign up now</a></p>
+          <p class="register">Not a member?&nbsp;<a href="/register">Sign up now</a></p>
         </form>
       </div>
     </div>
