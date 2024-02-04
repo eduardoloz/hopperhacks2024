@@ -60,7 +60,7 @@ app.post('/login', async (req, res) => {
             res.status(401).json({ error: 'Invalid credentials' });
             return;
         }
-        const token = jwt.sign({ userId: user._id }, SECRET_KEY, { expiresIn: '1hr' });
+        const token = jwt.sign({ username: user.username }, SECRET_KEY, { expiresIn: '1hr' });
         res.json({ token: token });
     } catch (error) {
         res.status(500).json({ error: error });
@@ -75,6 +75,32 @@ app.get('/matches', async (req, res) => {
             return res.status(401).json({ error: 'Invalid credentials' })
         }
         res.json({ matches: getProfilesForUser(user) });
+    } catch (error) {
+        res.status(500).json({ error: 'Error'})
+    }
+});
+
+app.post('/settings', async (req, res) => {
+    try {
+        console.log(req.body);
+
+        const token = req.body.token;
+        if (!token) {
+            res.json({
+                login: false,
+                data: 'error'
+            });
+            return;
+        }
+
+        const username = jwt.verify(token, SECRET_KEY).username;
+        res.json({
+            login: true,
+            data: username
+        });
+
+        console.log(username);
+        await setProfile(username, req.body.name, req.body.age, req.body.gender, req.body.preferredGender);
     } catch (error) {
         res.status(500).json({ error: 'Error'})
     }
@@ -130,6 +156,18 @@ async function addLocation(locid, name, community) {
         name: name,
         community: community,
     });
+}
+
+async function setProfile(username, name, age, gender, preferredGender) {
+    const profileCollection = db.collection('profiles');
+    await profileCollection.findOneAndUpdate({ username: username }, {
+        $set: {
+            name: name,
+            age: age,
+            gender: gender,
+            preferredGender: preferredGender
+        }
+    })
 }
 
 async function addProfile(name, username, password, gender, preferredGender, major, desc, locid, picture) {
