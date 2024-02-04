@@ -16,7 +16,8 @@ function Login() {
       setPassword('')
       navigate('/date')
     }) .catch((error) => {
-      console.log('Unable to register user');
+      alert('Unable to login');
+      console.log('Unable to login user');
     })
   }
 
