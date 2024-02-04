@@ -44,20 +44,24 @@ app.post('/register', async (req, res) => {
 
 // GET LOGIN
 app.post('/login', async (req, res) => {
+    console.log('hi');
+    console.log(req.body);
     try {
         const { username, password } = req.body
-        const user = getProfileByUsername(username); // Find username
+        const user = await getProfileByUsername(username); // Find username
         if (!user) {
-            return res.status(401).json({ error: 'Invalid credentials' })
+            res.status(401).json({ error: 'Invalid credentials' });
+            return;
         }
         const isPasswordValid = await bcrypt.compare(password, user.password) // Compare password saved to password entered by user
         if (!isPasswordValid) {
-            return res.status(401).json({ error: 'Invalid credentials' })
+            res.status(401).json({ error: 'Invalid credentials' });
+            return;
         }
-        const token = jwt.sign({ userId: user._id }, SECRET_KEY, {expiresIn: '1hr' })
+        // const token = jwt.sign({ userId: user._id }, SECRET_KEY, {expiresIn: '1hr' })
         res.json({ message: 'Login successfully' })
     } catch (error) {
-        res.status(500).json({ error: 'Error logging in'})
+        res.status(500).json({ error: error });
     }
 })
 
@@ -186,7 +190,5 @@ async function run() {
     console.log(hopper);
     console.log(wolfie);
     console.log(recommendations);
-
-    await client.close();
 }
 run().catch(console.dir);
