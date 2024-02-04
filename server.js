@@ -69,12 +69,25 @@ app.post('/login', async (req, res) => {
 
 app.get('/matches', async (req, res) => {
     try {
-        const { username } = req.body
-        const user = getProfileByUsername(username); // Find username
+        const token = req.headers.token;
+        if (!token) {
+            res.json({
+                login: false,
+                data: 'error'
+            });
+            return;
+        }
+
+        const username = jwt.verify(token, SECRET_KEY).username;
+        console.log(username);
+        
+        const user = await getProfileByUsername(username); // Find username
         if (!user) {
             return res.status(401).json({ error: 'Invalid credentials' })
         }
-        res.json({ matches: getProfilesForUser(user) });
+
+        console.log(user);
+        res.json({ matches: await getProfilesForUser(user) });
     } catch (error) {
         res.status(500).json({ error: 'Error'})
     }

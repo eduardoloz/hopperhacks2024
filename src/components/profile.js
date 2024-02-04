@@ -31,7 +31,7 @@ const Profile = (pfp) => {
           <div className="grid-item">Age: {pfp.age}</div>
           <div className="grid-item">Gender: {pfp.gender}</div>
           <div className="grid-item">Major: {pfp.major}</div>
-          <div className="grid-item">Dorm Hall: {pfp.dormhall}</div>
+          <div className="grid-item">Dorm Hall: {pfp.locid}</div>
         </div>
         <div className="accept-reject">
           <div className='x' onClick={() => copyAndMove('left', div.id)}><FaX /></div>
