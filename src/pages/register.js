@@ -17,6 +17,7 @@ function Register() {
             <input type="password" placeholder="Enter Password" />
           </div>
           <button className="register-btn">❤❤❤ ~ Register ~ ❤❤❤</button>
+          <p class="login">Already a hopper dreamer? <a href="/login">Login now!</a></p>
         </form>
       </div>
     </div>

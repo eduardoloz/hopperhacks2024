@@ -3,6 +3,78 @@ const uri = 'mongodb+srv://hopper:hopperhellyeah@cluster0.jkkkjsb.mongodb.net/?r
 const client = new MongoClient(uri);
 const db = client.db('hopper');
 
+const express = require('express'); // Sets up side server
+const mongoose = require('mongoose'); // Connect to mongoDB/database
+const cors = require('cors'); // Minimize error when connected to database & api
+const bodyParser = require('body-parser'); // Parse data into JSON
+const bcrypt = require('bcrypt'); // User auth - hash and store password
+const jwt = require('jsonwebtoken'); // Token that follows user when signed in & removed when signed out
+
+// Connect to Express app
+const app = express();
+
+// Connect to MongoDB
+mongoose.connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(() => {
+    app.listen(3001, () => { // Port 3001, React default port is 3000
+        console.log('Server is connected to port 3001 and connected to MongoDB');
+    }); 
+})
+.catch((error) => {
+    console.log('Unable to connect to Server and/or MongoDB');
+})
+
+// Middleware
+app.use(bodyParser.json());
+app.use(cors());
+
+app.post('/register', async (req, res) => {
+    try {
+        console.log(req.body);
+        const { name, username, password, gender, preferredGender, major, desc, locid, picture } = req.body
+        const hashedPassword = await bcrypt.hash(password, 10) // 10 - how hard it is to unhash the password
+        addProfile(name, username, hashedPassword, gender, preferredGender, major, desc, locid, picture);
+        res.status(201).json({ message: 'User created sucessfully'}) // Send status code of 201 if it works and send a message 
+    } catch (error) {
+        res.status(500).json({ message: 'Error signing up'})
+    }
+})
+
+// GET LOGIN
+app.post('/login', async (req, res) => {
+    try {
+        const { username, password } = req.body
+        const user = getProfileByUsername(username); // Find username
+        if (!user) {
+            return res.status(401).json({ error: 'Invalid credentials' })
+        }
+        const isPasswordValid = await bcrypt.compare(password, user.password) // Compare password saved to password entered by user
+        if (!isPasswordValid) {
+            return res.status(401).json({ error: 'Invalid credentials' })
+        }
+        const token = jwt.sign({ userId: user._id }, SECRET_KEY, {expiresIn: '1hr' })
+        res.json({ message: 'Login successfully' })
+    } catch (error) {
+        res.status(500).json({ error: 'Error logging in'})
+    }
+})
+
+app.get('/matches', async (req, res) => {
+    try {
+        const { username } = req.body
+        const user = getProfileByUsername(username); // Find username
+        if (!user) {
+            return res.status(401).json({ error: 'Invalid credentials' })
+        }
+        res.json({ matches: getProfilesForUser(user) });
+    } catch (error) {
+        res.status(500).json({ error: 'Error'})
+    }
+});
+
 async function initDatabase() {
     const locationCollection = db.collection('locations');
     const profileCollection = db.collection('profiles');
@@ -55,7 +127,7 @@ async function addLocation(locid, name, community) {
     });
 }
 
-async function addProfile(name, username, password, gender, preferredGender, major, desc, locid, pictures) {
+async function addProfile(name, username, password, gender, preferredGender, major, desc, locid, picture) {
     const profileCollection = db.collection('profiles');
     let shouldInsert = await profileCollection.findOne( { username: username} );
     if (shouldInsert != null) return;
@@ -68,7 +140,7 @@ async function addProfile(name, username, password, gender, preferredGender, maj
         major: major,
         desc: desc,
         locid: locid,
-        pictures: pictures
+        picture: picture
     });
 }
 
@@ -84,6 +156,7 @@ async function getProfilesForGenders(gender, preferredGender) {
 }
 
 async function getProfilesForUser(profile) {
+    // TODO add location filtering
     return getProfilesForGenders(profile.gender, profile.preferredGender);
 }
 
