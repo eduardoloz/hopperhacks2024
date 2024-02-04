@@ -25,6 +25,11 @@
   opacity: 0.9;
 }
 
+.register-img {
+  display: block;
+  margin: auto;
+}
+
 .register-title {
   font-weight: 999;
   font-size: 25px;
