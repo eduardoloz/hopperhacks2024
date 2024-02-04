@@ -35,6 +35,8 @@
   display: flex;
   justify-content: center;
   color: white;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .username-input, .password-input {
