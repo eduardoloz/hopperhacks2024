@@ -6,7 +6,7 @@ const Profile = () => {
   return (
   <div className="profile-container">
     <h1 className="profile-title">Name</h1>
-    <img src="path/to/your-image.jpg" alt="Profile Image" class="profile-image"></img>
+    <img src="path/to/your-image.jpg" onerror="this.src='../assets/hopper.png';" class="profile-image"></img>
     <div className="grid-container">
       <div className="grid-item">Section 1</div>
       <div className="grid-item">Section 2</div>
