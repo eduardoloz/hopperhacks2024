@@ -15,7 +15,7 @@ function Login() {
       localStorage.setItem('token', res.data.token);
       setUsername('')
       setPassword('')
-      navigate('/')
+      navigate('/settings')
       window.location.reload();
     }) .catch((error) => {
       alert('Unable to login');
