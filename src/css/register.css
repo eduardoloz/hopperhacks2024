@@ -1,4 +1,4 @@
-.container-register {
+.container {
   background-image: url(../assets/hoppersleepy.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -6,6 +6,7 @@
   background-color: rgb(0, 0, 0);
   background-size: cover; /* This will make the background image cover the entire body */
 }
+
 
 .register-form {
   display: flex;
