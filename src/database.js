@@ -1,5 +1,5 @@
 const { MongoClient } = require("mongodb");
-const uri = 'mongodb+srv://hopper:hopperhellyeah@cluster0.jkkkjsb.mongodb.net/?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://hopper:hopperhellyeah@cluster0.jkkkjsb.mongodb.net/hopper?retryWrites=true&w=majority';
 const client = new MongoClient(uri);
 const db = client.db('hopper');
 
@@ -15,7 +15,8 @@ const app = express();
 
 // Connect to MongoDB
 mongoose.connect(uri, {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 })
 .then(() => {
     app.listen(3001, () => { // Port 3001, React default port is 3000
@@ -186,7 +187,5 @@ async function run() {
     console.log(hopper);
     console.log(wolfie);
     console.log(recommendations);
-
-    await client.close();
 }
 run().catch(console.dir);
