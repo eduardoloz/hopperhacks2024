@@ -6,7 +6,12 @@ function SignOut() {
   const navigate = useNavigate();
   localStorage.removeItem('token');
   navigate('/login')
-  return (<p>signed out</p>);
+  return (
+    <div>
+      <p>Signed out.</p>
+      <a href='/'>Back Home</a>
+    </div>
+  );
 }
 
 export default SignOut;

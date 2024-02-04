@@ -65,7 +65,7 @@ function copyAndMove(button, direction) {
 
   setTimeout(function() {
       div1.parentNode.removeChild(div1);
-  }, 2000); // Match the delay to the transition duration
+  }, 3000); // Match the delay to the transition duration
 }
 
 export default Profile;
