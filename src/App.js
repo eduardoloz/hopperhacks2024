@@ -24,7 +24,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/About-us" element={<AboutUs />} />
-          {isUserSignedIn && <Route path="/signout" element={<SignOut />} />}
+          {isUserSignedIn && <Route path="/login" element={<Login />} />}
         </Routes>
       </Router>
     </div>
