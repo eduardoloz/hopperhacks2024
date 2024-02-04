@@ -1,13 +1,14 @@
 import '../css/navbar.css'
 
 const Navbar = () => {
+    const isUserSignedIn = !!localStorage.getItem('token');
     return(
     <div class="navbar">
         <a href="/">Home</a>
-        <a href="/">About</a>
-        <a href="/date">Date!</a>
-        <a href="/About-us" class="right">About Us</a>
-        <a href="/settings" class="right">My Account</a> 
+        <a href="/About-us">About</a>
+        {isUserSignedIn && <a href="/date">Date!</a>}
+        {isUserSignedIn && <a href="/signout" class="right">Sign Out</a>}
+        {isUserSignedIn && <a href="/settings" class="right">My Account</a>}
     </div>
     );
 }
