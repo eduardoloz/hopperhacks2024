@@ -20,13 +20,32 @@ const Profile = ({onDisappear}, pfp) => {
     });
   }
 
+  const colors = [
+    "#ffadad",
+    "#ffd6a5",
+    "#fdffb6",
+    "#caffbf",
+    "#9bf6ff",
+    "#a0c4ff",
+    "#bdb2ff",
+    "#ffc6ff",
+    "#ffadad"
+  ]
+
+  const getRandomColor = () => {
+    return colors[Math.floor(Math.random() * colors.length)];
+  };
+    // Setting the random color to the background
+    const style = {
+      backgroundColor: getRandomColor()
+    };
+
   return (
     <div className='profile-page'>
      
     {divs.map(div => (
       visible ?
-      <div key={div.id} className={`profile-container ${div.direction}`}>
-        
+      <div key={div.id} className={`profile-container ${div.direction}`} style={style}>
         <h1 className="profile-title">Name: {pfp.name}</h1>
         <img src="path/to/your-image.jpg" class="profile-image"></img>
         <div className="grid-container">
