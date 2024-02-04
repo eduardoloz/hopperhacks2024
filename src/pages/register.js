@@ -4,6 +4,37 @@ import { Link } from "react-router-dom";
 import hopperImage from "../assets/hopper.png"; 
 
 function Register() {
+  const [user, setUsers] = useState([])
+  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fecthUsers();
+  }, [])
+
+  const fecthUsers = () => {
+    axios.get("http://localhost:3001/register")
+    .then((res) => {
+      console.log(res.data)
+    })
+  }
+
+  const handleRegister = (event) => {
+    event.preventDefault();
+    axios.post('http://localhost:3001/register', { email, username, password}).then(() => {
+      alert('Registration Sucesssful')
+      setEmail('')
+      setUsername('')
+      setPassword('')
+      fecthUsers()
+      navigate('/login')
+    }) .catch((error) => {
+      console.log('Unable to register user')
+    })
+  }
+  
   return (
     <div className="register-container">
       <div className="register-form">

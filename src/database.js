@@ -15,8 +15,7 @@ const app = express();
 
 // Connect to MongoDB
 mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+    useNewUrlParser: true
 })
 .then(() => {
     app.listen(3001, () => { // Port 3001, React default port is 3000
