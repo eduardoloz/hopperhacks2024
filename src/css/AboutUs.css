@@ -3,9 +3,8 @@
     background-image: url(../assets/hoppersleepy.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: center;
+    background-position: right;
     background-color: black;
-    background-size: cover;
 }
 
 .aboutus-text {
@@ -13,12 +12,13 @@
     flex-direction: column;
     align-items: row;
 
-    width: 100vw;
+    width: 50vw;
     height: 100%;
 
+    padding-top: 90px;
     padding-bottom: 100%;
 
-    color: white;
-    font-size: 20px;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
 
 }
