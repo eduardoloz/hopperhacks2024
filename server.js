@@ -10,6 +10,8 @@ const bodyParser = require('body-parser'); // Parse data into JSON
 const bcrypt = require('bcrypt'); // User auth - hash and store password
 const jwt = require('jsonwebtoken'); // Token that follows user when signed in & removed when signed out
 
+const SECRET_KEY = 'hoppermetenderhoppermedo';
+
 // Connect to Express app
 const app = express();
 
@@ -58,7 +60,7 @@ app.post('/login', async (req, res) => {
             res.status(401).json({ error: 'Invalid credentials' });
             return;
         }
-        // const token = jwt.sign({ userId: user._id }, SECRET_KEY, {expiresIn: '1hr' })
+        const token = jwt.sign({ userId: user._id }, SECRET_KEY, { expiresIn: '1hr' });
         res.json({ message: 'Login successfully' })
     } catch (error) {
         res.status(500).json({ error: error });
